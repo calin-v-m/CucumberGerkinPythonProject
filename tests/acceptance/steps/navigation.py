@@ -1,34 +1,24 @@
 from behave import *
 from selenium import webdriver
+from tests.acceptance.pages.navigation_page import NavigationPage
 
 use_step_matcher('re')
 
 
 @given('I am on the homepage of Selenium Easy')
-def step_impl(context):
-    context.driver = webdriver.Chrome()
-    context.driver.get('https://www.seleniumeasy.com/')
-    context.driver.maximize_window()
+def step_impl(self):
+    self.driver = webdriver.Chrome()
+    self.driver.get(NavigationPage.url)
+    self.driver.maximize_window()
 
 
-@given('I am on the homepage that has a search option')
-def step_impl(context):
-    context.driver = webdriver.Chrome()
-    context.driver.get('https://www.seleniumeasy.com/')
-    context.driver.maximize_window()
+@when('I click on the Maven tab link')
+def step_impl(self):
+    maven_tab = self.driver.find_element_by_css_selector(NavigationPage.maven_tab_element)
+    maven_tab.click()
 
 
 @then('I am on the Maven page')
-def step_impl(context):
-    expected_url = 'https://www.seleniumeasy.com/maven-tutorials'
-    print(context.driver.current_url)
-    print(expected_url)
-    assert context.driver.current_url == expected_url
-
-
-@then('it shows all the results that include the word searched')
-def step_impl(context):
-    expected_url = 'https://www.seleniumeasy.com/search/node/JUnit'
-    print(context.driver.current_url)
-    print(expected_url)
-    assert context.driver.current_url == expected_url
+def step_impl(self):
+    assert self.driver.current_url == NavigationPage.expected_url
+    self.driver.close()
