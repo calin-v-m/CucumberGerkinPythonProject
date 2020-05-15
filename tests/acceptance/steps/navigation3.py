@@ -2,6 +2,7 @@ from behave import *
 from selenium import webdriver
 from tests.acceptance.pages.navigation_page import NavigationPage
 from selenium.webdriver.common.keys import Keys
+import time
 
 use_step_matcher('re')
 
@@ -31,4 +32,5 @@ def step_impl(self):
 @then('it takes me to the desired web page')
 def step_impl(self):
     self.driver.current_url == NavigationPage.expected_url3
+    time.sleep(3)
     self.driver.close()
