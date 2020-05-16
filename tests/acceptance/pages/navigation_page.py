@@ -17,3 +17,11 @@ class NavigationPage:
     google_input_link = 'http://www.seleniumeasy.com/'
     first_se_element = 'a[href="https://www.seleniumeasy.com/"]'
     expected_url3 = 'https://www.seleniumeasy.com/'
+
+    #subscription_se elements
+    subscription_button = '#mc-embedded-subscribe'
+    email_address_field = '#MERGE0'
+    first_name_field = '#MERGE1'
+    last_name_field = '#MERGE2'
+    send_info_button = 'div .formEmailButton'
+    expected_subscription_url = 'https://seleniumeasy.us15.list-manage.com/subscribe/post?u=a5d2efe08ad93a8b91b578279&id=5d70235043'
