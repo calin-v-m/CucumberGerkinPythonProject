@@ -15,7 +15,7 @@ def step_impl(self):
 
 @when('I click on the subscription button')
 def step_impl(self):
-    self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+    self.driver.execute_script(NavigationPage.page_final)
     my_button_for_subscription = self.driver.find_element_by_css_selector(NavigationPage.subscription_button)
     my_button_for_subscription.click()
     time.sleep(1)

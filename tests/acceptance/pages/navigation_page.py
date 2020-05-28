@@ -1,5 +1,4 @@
 class NavigationPage:
-
     # navigation elements
     url = 'https://www.seleniumeasy.com/'
     maven_tab_element = '.leaf a[href="/maven-tutorials"]'
@@ -18,7 +17,8 @@ class NavigationPage:
     first_se_element = 'a[href="https://www.seleniumeasy.com/"]'
     expected_url3 = 'https://www.seleniumeasy.com/'
 
-    #subscription_se elements
+    # subscription_se elements
+    page_final = "window.scrollTo(0, document.body.scrollHeight);"
     subscription_button = '#mc-embedded-subscribe'
     email_address_field = '#MERGE0'
     first_name_field = '#MERGE1'
