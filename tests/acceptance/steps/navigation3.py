@@ -4,6 +4,8 @@ from tests.acceptance.pages.navigation_page import NavigationPage
 from selenium.webdriver.common.keys import Keys
 import time
 
+from tests.acceptance.utils import utils
+
 use_step_matcher('re')
 
 
@@ -11,7 +13,7 @@ use_step_matcher('re')
 def step_impl(self):
     self.driver = webdriver.Chrome()
     self.driver.get(NavigationPage.google_url)
-    self.driver.maximize_window()
+    utils.maximize_driver(self)
 
 
 @when('I search for Seleniumeasy.com')
@@ -33,4 +35,4 @@ def step_impl(self):
 def step_impl(self):
     self.driver.current_url == NavigationPage.expected_url3
     time.sleep(3)
-    self.driver.close()
+    utils.close_driver(self)

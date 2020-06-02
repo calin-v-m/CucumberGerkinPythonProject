@@ -1,6 +1,7 @@
 from behave import *
 from selenium import webdriver
 from tests.acceptance.pages.navigation_page import NavigationPage
+from tests.acceptance.utils import utils
 
 use_step_matcher('re')
 
@@ -9,7 +10,7 @@ use_step_matcher('re')
 def step_impl(self):
     self.driver = webdriver.Chrome()
     self.driver.get(NavigationPage.url)
-    self.driver.maximize_window()
+    utils.maximize_driver(self)
 
 
 @when('I click on the Maven tab link')
@@ -21,4 +22,4 @@ def step_impl(self):
 @then('I am on the Maven page')
 def step_impl(self):
     assert self.driver.current_url == NavigationPage.expected_url
-    self.driver.close()
+    utils.close_driver(self)

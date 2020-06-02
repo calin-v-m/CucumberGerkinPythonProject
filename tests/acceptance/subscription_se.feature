@@ -5,4 +5,4 @@ Feature: Test the subscription feature of a web page when accessing Seleniumeasy
     Given I am on the homepage of SeleniumEasy.com
     When I click on the subscription button
     Then it takes me to the correct web page to let me fill all the text fields
-    Then click submit
+    And click submit

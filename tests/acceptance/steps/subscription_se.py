@@ -3,6 +3,8 @@ from selenium import webdriver
 from tests.acceptance.pages.navigation_page import NavigationPage
 import time
 
+from tests.acceptance.utils import utils
+
 use_step_matcher('re')
 
 
@@ -10,7 +12,7 @@ use_step_matcher('re')
 def step_impl(self):
     self.driver = webdriver.Chrome()
     self.driver.get(NavigationPage.url)
-    self.driver.maximize_window()
+    utils.maximize_driver(self)
 
 
 @when('I click on the subscription button')
@@ -40,4 +42,4 @@ def step_impl(self):
     button = self.driver.find_element_by_css_selector(NavigationPage.send_info_button)
     button.click()
     time.sleep(2)
-    self.driver.quit()
+    utils.close_driver(self)
